@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="./javascripts/components.js" defer></script>
+    <script src="./javascripts/script.js" defer></script>
+    <title>Payment App</title>
+</head>
+
+<body>
+    <header>
+        <h1>THE STUDENT PAYMENTS APP</h1>
+    </header>
+    <div class="main-container" id="app">
+        <div class="left-form">
+            <button class="button-more-less" v-on:click="showSearch = !showSearch">
+                <h2>Get student information</h2>
+            </button>
+            <transition name="fade">
+                <div class="get-info left-form-input" v-if="showSearch">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="first-name" v-model="studentFirstName" />
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="last-name" v-model="studentLastName" />
+                    <div class="inline-buttons">
+                        <button class="button" v-on:click="getStudentInfo">Get Info</button>
+                        <button class="button" v-on:click="clearResults">Clear</button>
+                        <button class="button" v-on:click="getAllStudentsList">Get All Students List</button>
+                    </div>
+                </div>
+            </transition>
+            <button class="button-more-less" v-on:click="showAddPayment = !showAddPayment">
+                <h2>Add payment</h2>
+            </button>
+            <transition name="fade">
+                <div class="get-payment left-form-input" v-if="showAddPayment">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="first-name" v-model="studentFirstName" />
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="last-name" v-model="studentLastName" />
+                    <label for="amount">Payment</label>
+                    <select name="amount" id="payment-amount" class="input">
+                        <option value="">15</option>
+                        <option value="">20</option>
+                    </select>
+                    <label for="date">Date</label>
+                    <input type="time/date">
+                    <button class="button">Add New Payment</button>
+                </div>
+            </transition>
+            <button class="button-more-less" v-on:click="showAddStudent = !showAddStudent">
+                <h2>Create New Student</h2>
+            </button>
+            <transition name="fade">
+                <div class="create-student left-form-input" v-if="showAddStudent">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="first-name" v-model="studentFirstName" />
+                    <label for="last-name"></label>Last Name</label>
+                    <input type="text" class="last-name" v-model="studentLastName" />
+                    <button class="button" v-on:click="createNewStudent">Submit New Student</button>
+                </div>
+            </transition>
+        </div>
+        <div class="right-form">
+            <h2>Search Results</h2>
+            <student-ballance v-for="student in studentsToView" v-bind:name="student.name"
+                v-bind:payments="student.totalPayments" v-bind:lessons="student.totalLessons"
+                v-bind:paymentballance="student.lessonsLeft">
+            </student-ballance>
+            <not-found-student v-for="name in notFoundStudents" v-bind:name="name"></not-found-student>
+            <new-payment v-if="newPayment"></new-payment>
+            <get-full-name v-if="getFullName"></get-full-name>
+            <all-students v-if="showStudentSearch" v-bind:names="currentStudentsList"></all-students>
+        </div>
+    </div>
+    </div>
+    <footer>WebDev @ Martin Majorov, 2020</footer>
+
+
+</body>
+
+</html>

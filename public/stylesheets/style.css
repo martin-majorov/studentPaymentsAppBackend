@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: grey;
+    text-align: center;
+    border-radius: 10px;
+    margin: 30px 30px;
+    padding: 20px 0px;
+}
+
+.main-container {
+    display: flex;
+    align-items: stretch;        
+    justify-content: space-between;
+    margin: 0px 30px;
+    }
+
+.left-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 20px 20px;
+    margin: 0px 30px 0px 0px;
+}
+
+.right-form {
+    width:50%;
+    font-family: 'Catamaran', sans-serif;
+    color: white;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+    
+
+@media only screen and (max-width: 700px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0px 30px;
+    }
+
+    .left-form {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: grey;
+        border-radius: 10px;
+        margin: 0px 0px 30px 0px;
+    }
+
+    .right-form {
+        width: auto;
+        font-family: 'Catamaran', sans-serif;
+        color: white;
+        background-color: grey;
+        border-radius: 10px;
+
+    }
+
+    header {
+        font-size: 10px;
+    }
+  }
+
+
+
+.left-form-input {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Catamaran', sans-serif;
+    color: white;
+}
+
+
+.button {
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 160px;
+    height: 40px;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    
+}
+
+.button-more-less {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 17px;
+    background: none;
+    text-align: left;
+    color: white;
+    border: 0;
+    outline: 0;
+}
+
+.inline-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-more-less:hover {
+    cursor: pointer;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    color: black;
+    border: 0;
+    outline: 0;
+}
+
+input, .input{
+    height: 25px;
+    width: 50%;
+    max-width: 250px;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+}
+
+.student-info-form {
+    padding: 10px;
+    background-color: green;
+    border-color: white;
+    border: 1px;
+    border-radius: 5px;
+    border-style: dashed;
+    margin: 30px;
+}
+
+.student-info-form div {
+    padding: 15px;
+}
+
+.student-form-names {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.student-form-numbers {
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.table-right {
+    text-align: right;
+}
+
+.table-left {
+    text-align: left;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+.student-not-found {
+    padding: 10px;
+    background-color: orangered;
+    border-color: white;
+    border: 1px;
+    border-radius: 5px;
+    border-style: dashed;
+    margin: 30px;
+}
