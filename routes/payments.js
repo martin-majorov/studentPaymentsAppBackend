@@ -72,13 +72,12 @@ paymentsRouter.post('/', (req, res, next) => {
 });
 
 paymentsRouter.put('/:paymentId', (req, res, next) => {
-    const studentId = req.body.payment.student_id;
+
     const date = req.body.payment.date;
     const paymentAmount = req.body.payment.payment_amount;
 
-    const sql = `UPDATE Payments SET student_id=$studentId, date=$date, payment_amount=$paymentAmount WHERE id=${req.payment.id}`;
+    const sql = `UPDATE Payments SET date=$date, payment_amount=$paymentAmount WHERE id=${req.payment.id}`;
     const data = {
-        $studentId: studentId,
         $date: date,
         $paymentAmount: paymentAmount
     };

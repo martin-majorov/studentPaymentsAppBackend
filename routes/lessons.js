@@ -73,13 +73,11 @@ lessonsRouter.post('/', (req, res, next) => {
 
 
 lessonsRouter.put('/:lessonId', (req, res, next) => {
-    const studentId = req.body.lesson.student_id;
     const date = req.body.lesson.date;
     const lessonLength = req.body.lesson.lesson_length;
 
-    const sql = `UPDATE Lessons SET student_id=$studentId, date=$date, lesson_length=$lessonLength WHERE id=${req.lesson.id}`;
+    const sql = `UPDATE Lessons SET date=$date, lesson_length=$lessonLength WHERE id=${req.lesson.id}`;
     const data = {
-        $studentId: studentId,
         $date: date,
         $lessonLength: lessonLength
     };

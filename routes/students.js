@@ -96,6 +96,28 @@ studentsRouter.put('/:studentId', (req, res, next) => {
     });
 });
 
+studentsRouter.put('/:studentId/editname', (req, res, next) => {
+    const name = req.body.student.name;
+    const surname = req.body.student.surname;
+    
+
+    const sql = `UPDATE Students SET name=$name, surname=$surname WHERE id=${req.student.id}`;
+    const data = {
+        $name: name,
+        $surname: surname
+    };
+
+    db.run(sql, data, (error) => {
+        if(error) {
+            next(error);
+        } else {
+            db.get(`SELECT * FROM Students WHERE id = ${req.student.id}`, (error, student) => {
+                res.status(201).json({student});
+            });
+        };
+    });
+});
+
 studentsRouter.delete('/:studentId', (req, res, next) => {
     const sql = `DELETE FROM Students WHERE id=${req.student.id}`;
 
